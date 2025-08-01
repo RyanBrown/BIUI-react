@@ -4,7 +4,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh  
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Expanding the ESLint configuration
@@ -12,6 +12,7 @@ Currently, two official plugins are available:
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
 ```js
+// eslint.config.js
 export default tseslint.config([
   globalIgnores(['dist']),
   {
@@ -67,3 +68,134 @@ export default tseslint.config([
   },
 ])
 ```
+
+---
+
+## Adding Storybook (Vite + TypeScript)
+
+Storybook lets you develop and showcase your React components in isolation. This guide shows how to wire it up using Vite as the builder and TypeScript for all configs.
+
+### 1. Install Storybook and peer deps
+
+```bash
+npm install --save-dev \
+  storybook@latest \
+  @storybook/react-vite@latest \
+  @storybook/builder-vite@latest \
+  @storybook/addon-essentials@latest \
+  @storybook/addon-links@latest \
+  ts-node typescript @types-node
+```
+
+### 2. Add Storybook scripts
+
+In your **package.json**, add:
+
+```jsonc
+{
+  "scripts": {
+    // … existing scripts …
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  }
+}
+```
+
+### 3. Scaffold the `.storybook/` folder
+
+Create a **.storybook/** directory at your project root with these files:
+
+#### `.storybook/main.ts`
+
+```ts
+// .storybook/main.ts
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const config: StorybookConfig = {
+  stories: [
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)'
+  ],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials'
+  ],
+  framework: {
+    name: '@storybook/react-vite',
+    options: {}
+  },
+  core: {
+    builder: '@storybook/builder-vite'
+  }
+};
+
+export default config;
+```
+
+#### `.storybook/preview.ts`
+
+```ts
+// .storybook/preview.ts
+import type { Parameters } from '@storybook/react';
+import '../src/index.css'; // your global styles
+
+export const parameters: Parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/
+    }
+  }
+};
+```
+
+_Optionally add a `manager.ts` if you want to customize the Storybook UI theme._
+
+### 4. Enable TypeScript for Storybook config
+
+Create **.storybook/tsconfig.json**:
+
+```jsonc
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "esModuleInterop": true
+  },
+  "include": [
+    "main.ts",
+    "preview.ts",
+    "manager.ts"
+  ]
+}
+```
+
+Then ensure your root **tsconfig.json** includes the `.storybook` folder:
+
+```jsonc
+{
+  "compilerOptions": {
+    // … your existing options …
+  },
+  "include": [
+    "src",
+    ".storybook"
+  ]
+}
+```
+
+### 5. Run Storybook
+
+```bash
+npm run storybook
+```
+
+Visit <http://localhost:6006> to browse your component library in isolation!
+
+---
+
+> **Tip:**
+> - You can add stories alongside your components by naming files `*.stories.tsx` in `src/`.
+> - Use `npm run build-storybook` to generate a static Storybook bundle in `storybook-static/`.
