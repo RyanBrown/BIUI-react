@@ -101,11 +101,11 @@ In your **package.json**, add:
 }
 ```
 
-### 3. Scaffold the `.storybook/` folder
+### 3. Scaffold the \`.storybook/\` folder
 
 Create a **.storybook/** directory at your project root with these files:
 
-#### `.storybook/main.ts`
+#### \`.storybook/main.ts\`
 
 ```ts
 // .storybook/main.ts
@@ -132,7 +132,7 @@ const config: StorybookConfig = {
 export default config;
 ```
 
-#### `.storybook/preview.ts`
+#### \`.storybook/preview.ts\`
 
 ```ts
 // .storybook/preview.ts
@@ -150,7 +150,7 @@ export const parameters: Parameters = {
 };
 ```
 
-_Optionally add a `manager.ts` if you want to customize the Storybook UI theme._
+_Optionally add a \`manager.ts\` if you want to customize the Storybook UI theme._
 
 ### 4. Enable TypeScript for Storybook config
 
@@ -196,6 +196,46 @@ Visit <http://localhost:6006> to browse your component library in isolation!
 
 ---
 
+## Running Tests
+
+This template uses Vitest for running unit tests.
+
+1. **Install testing dependencies** (if not already installed):
+   ```bash
+   npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom
+   ```
+
+2. **Add test scripts** to your \`package.json\`:
+   ```jsonc
+   {
+     "scripts": {
+       // … existing scripts …
+       "test": "vitest",
+       "test:watch": "vitest --watch",
+       "test:coverage": "vitest run --coverage"
+     }
+   }
+   ```
+
+3. **Run Tests**:
+   ```bash
+   npm run test
+   ```
+
+4. **Watch Mode**:
+   ```bash
+   npm run test:watch
+   ```
+
+5. **Generate coverage report**:
+   ```bash
+   npm run test:coverage
+   ```
+
+Your tests should be colocated next to your components with filenames ending in \`.test.tsx\` or \`.spec.ts\`.
+
+---
+
 > **Tip:**
-> - You can add stories alongside your components by naming files `*.stories.tsx` in `src/`.
-> - Use `npm run build-storybook` to generate a static Storybook bundle in `storybook-static/`.
+> - You can add stories alongside your components by naming files \`*.stories.tsx\` in \`src/\`.
+> - Use \`npm run build-storybook\` to generate a static Storybook bundle in \`storybook-static/\`.
