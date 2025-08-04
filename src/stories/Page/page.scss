@@ -1,0 +1,93 @@
+$font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$text-color: #333;
+$link-color: inherit;
+$tip-bg-color: #e7fdd8;
+$tip-text-color: #357a14;
+$icon-color: #1ea7fd;
+
+// Page layout variables
+$page-max-width: 600px;
+$page-padding: 48px 20px;
+$content-spacing: 1em;
+
+// Typography variables
+$base-font-size: 14px;
+$base-line-height: 24px;
+$heading-font-size: 32px;
+$tip-font-size: 11px;
+$tip-line-height: 12px;
+$small-font-size: 13px;
+$small-line-height: 20px;
+
+.storybook-page {
+  margin: 0 auto;
+  padding: $page-padding;
+  max-width: $page-max-width;
+  color: $text-color;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-family: $font-family;
+
+  h2 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 4px;
+    font-weight: 700;
+    font-size: $heading-font-size;
+    line-height: 1;
+  }
+
+  p {
+    margin: $content-spacing 0;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  ul {
+    margin: $content-spacing 0;
+    padding-left: 30px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .tip {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    border-radius: 1em;
+    background: $tip-bg-color;
+    padding: 4px 12px;
+    color: $tip-text-color;
+    font-weight: 700;
+    font-size: $tip-font-size;
+    line-height: $tip-line-height;
+  }
+
+  .tip-wrapper {
+    margin: {
+      top: 40px;
+      bottom: 40px;
+    }
+    font-size: $small-font-size;
+    line-height: $small-line-height;
+
+    svg {
+      display: inline-block;
+      vertical-align: top;
+      margin: {
+        top: 3px;
+        right: 4px;
+      }
+      width: 12px;
+      height: 12px;
+
+      path {
+        fill: $icon-color;
+      }
+    }
+  }
+}

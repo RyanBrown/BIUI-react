@@ -1,0 +1,39 @@
+$font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$border-color: rgba(0, 0, 0, 0.1);
+$text-color: #333;
+$padding-vertical: 15px;
+$padding-horizontal: 20px;
+$button-spacing: 10px;
+
+.storybook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $border-color;
+  padding: $padding-vertical $padding-horizontal;
+  font-family: $font-family;
+
+  svg {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  h1 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 6px 0 6px $button-spacing;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  button+button {
+    margin-left: $button-spacing;
+  }
+
+  .welcome {
+    margin-right: $button-spacing;
+    color: $text-color;
+    font-size: 14px;
+  }
+}
