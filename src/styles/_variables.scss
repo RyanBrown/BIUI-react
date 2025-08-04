@@ -1,0 +1,48 @@
+// src/styles/_variables.scss
+
+// Colors
+:root {
+  --color-primary-purple: #9333ea;
+  --color-primary-indigo: #6366f1;
+  --color-primary-blue: #4f46e5;
+  --color-primary-pink: #ec4899;
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-600: #4b5563;
+  --color-gray-900: #111827;
+}
+
+// SCSS Variables (for use in calculations/mixins)
+$primary-purple: #9333ea;
+$primary-indigo: #6366f1;
+$primary-blue: #4f46e5;
+$primary-pink: #ec4899;
+$white: #ffffff;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-600: #4b5563;
+$gray-900: #111827;
+
+// Typography
+$font-family-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+$spacing-4xl: 5rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Gradients
+$hero-gradient: linear-gradient(to bottom right, $primary-purple, $primary-indigo);
+$cta-gradient: linear-gradient(90deg, $primary-blue 0%, $primary-purple 50%, $primary-pink 100%);

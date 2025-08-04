@@ -1,0 +1,225 @@
+// src/styles/_components.scss
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Hero Component
+.hero {
+  background: $hero-gradient;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  @include flex-center;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    opacity: 0.3;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 $spacing-lg;
+    color: $white;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: $spacing-lg;
+    line-height: 1.1;
+
+    @include responsive($breakpoint-md) {
+      font-size: 4rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: $spacing-2xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+
+    @include responsive($breakpoint-md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__cta {
+    @include button-secondary;
+    font-size: 1.1rem;
+    padding: 16px 32px;
+    border-radius: 50px;
+  }
+}
+
+// Features Component
+.features {
+  padding: $spacing-4xl 0;
+  background: $white;
+
+  &__container {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-2xl;
+
+    @include responsive($breakpoint-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive($breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    padding: $spacing-2xl;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+  }
+
+  &__card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+    color: $gray-900;
+  }
+
+  &__card-desc {
+    color: $gray-600;
+    line-height: 1.6;
+  }
+}
+
+// CTA Component
+.cta {
+  padding: $spacing-4xl $spacing-lg;
+  background: $cta-gradient;
+  color: $white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__content {
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    @include container;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
+    line-height: 1.2;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: $spacing-2xl;
+    line-height: 1.4;
+    opacity: 0.9;
+
+    @include mobile {
+      font-size: 1rem;
+    }
+  }
+
+  &__button {
+    @include button-secondary;
+    font-size: 1.1rem;
+    padding: 16px 32px;
+    border-radius: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Footer Component
+.footer {
+  padding: $spacing-xl $spacing-lg;
+  background-color: $gray-100;
+  color: $gray-600;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include container;
+
+    @include responsive($breakpoint-sm) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  &__copy {
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  &__links {
+    display: flex;
+    gap: $spacing-lg;
+    margin-top: $spacing-sm;
+
+    @include responsive($breakpoint-sm) {
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    color: $gray-600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-blue;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+// src/components/Footer/Footer.scss
+/* Footer wrapper */
+.footer {
+  padding: 24px 16px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Layout container */
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Text for copyright */
+.footer-copy {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Links container */
+.footer-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* Individual link styling */
+.footer-link {
+  font-size: 0.875rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 640px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-links {
+    margin-top: 0;
+  }
+}

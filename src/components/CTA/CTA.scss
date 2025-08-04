@@ -1,0 +1,46 @@
+// src/components/CTA/CTA.scss
+/* Container styling */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(90deg, #4f46e5 0%, #9333ea 50%, #ec4899 100%);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Inner content wrapper */
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Heading styles */
+.cta-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Subheading styles */
+.cta-subheading {
+  font-size: 1.125rem;
+  margin-bottom: 32px;
+  line-height: 1.4;
+}
+
+/* Button styles */
+.cta-button {
+  background-color: #ffffff;
+  color: #4f46e5;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
