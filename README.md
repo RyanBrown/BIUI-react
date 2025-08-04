@@ -137,7 +137,7 @@ export default config;
 ```ts
 // .storybook/preview.ts
 import type { Parameters } from '@storybook/react';
-import '../src/index.css'; // your global styles
+import '../src/index.scss'; // your global styles
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
